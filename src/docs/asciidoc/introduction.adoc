@@ -1,0 +1,16 @@
+[background-image='images/brumjs.png']
+[background-size='400px 600px']
+== !
+
+*Down to the Metal*
+
+Jez Higgins
+
+[NOTE.speaker]
+--
+Hello everyone - I'm Jez. I'm a freelance software grandad and I'm available to prevent you falling down the old mine shaft, because I have a hole in my diary I'd be happy to have filled :)
+
+Dan was kind enough to invite me to speak here at Brum.js a couple of years ago, during which I didn't mention JavaScript once. There will be some JavaScript this evening. Sort of
+--
+
+

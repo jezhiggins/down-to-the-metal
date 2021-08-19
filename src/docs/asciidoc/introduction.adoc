@@ -8,9 +8,16 @@ Jez Higgins
 
 [NOTE.speaker]
 --
-Hello everyone - I'm Jez. I'm a freelance software grandad and I'm available to prevent you falling down the old mine shaft, because I have a hole in my diary I'd be happy to have filled :)
+Hello everyone - I'm Jez. I'm a freelance software grandad and I'm available, on a very flexible freelance basis, to try and help prevent you from falling down the old mine shaft :)
 
-Dan was kind enough to invite me to speak here at Brum.js a couple of years ago, during which I didn't mention JavaScript once. There will be some JavaScript this evening. Sort of
+Dan was kind enough to invite me to speak here at Brum.js a couple of years ago, during which I didn't mention JavaScript once. There will, however, be some JavaScript this evening. Sort of
 --
 
+[background-image='images/the-matrix-digital-rain.jpg']
+== !
 
+[white]#*How does the text we type*#
+
+[white]#*turn into the computer*#
+
+[white]#*actually doing things?*#

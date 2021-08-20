@@ -8,6 +8,14 @@ Jez Higgins, jez@jezuk.co.uk
 
 include::introduction.adoc[]
 
+include::cell.adoc[]
+
+include::lexing.adoc[]
+
+include::parsing.adoc[]
+
+include::eval.adoc[]
+
 ++++
 <div id="talk-header" class="slide-header">
   <small class="slide-header-text">Brum.js September 2021, @jezhiggins</small>

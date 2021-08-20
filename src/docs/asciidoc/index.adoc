@@ -3,6 +3,7 @@ Jez Higgins, jez@jezuk.co.uk
 {docdate}
 :customcss: style/theme-tweak.css
 :revealjs_theme: white
+:revealjs_transition: fade
 :revealjs_progress: false
 
 include::introduction.adoc[]

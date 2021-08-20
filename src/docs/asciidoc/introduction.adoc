@@ -10,7 +10,7 @@ Jez Higgins
 --
 Hello everyone - I'm Jez. I'm a freelance software grandad and I'm available, on a very flexible freelance basis, to try and help prevent you from falling down the old mine shaft :)
 
-Dan was kind enough to invite me to speak here at Brum.js a couple of years ago, during which I didn't mention JavaScript once. There will, however, be some JavaScript this evening. Sort of
+Dan was kind enough to invite me to speak here at Brum.js a couple of years ago, during which I didn't mention JavaScript once. There will, however, be some JavaScript this evening.
 --
 
 [background-image='images/the-matrix-digital-rain.jpg']
@@ -21,3 +21,136 @@ Dan was kind enough to invite me to speak here at Brum.js a couple of years ago,
 [white]#*turn into the computer*#
 
 [white]#*actually doing things?*#
+
+== !
+
+[source,javascript]
+--
+const canvas = document.getElementById('myCanvas')
+const ctx = canvas.getContext('2d')
+
+const WIDTH = ctx.canvas.width
+const HEIGHT = ctx.canvas.height
+
+const REAL = { start: -2, range: 3 }
+const IMAGINARY = { start: -1, range: 2 }
+
+const colors = new Array(16).fill(0).map((_, i) => i === 0 ? '#000' : `#${((1 << 24) * Math.random() | 0).toString(16)}`)
+
+for (let i = 0; i < WIDTH; ++i) {
+  for (let j = 0; j < HEIGHT; ++j) {
+    const complex = {
+      x: REAL.start + (i / WIDTH) * REAL.range,
+      y: IMAGINARY.start + (j / HEIGHT) * IMAGINARY.range
+    }
+
+    const [m, is] = fn(complex)
+    ctx.fillStyle = colors[is ? 0 : (m % colors.length - 1) + 1]
+    ctx.fillRect(i, j, 1, 1)
+  }
+}
+--
+
+[NOTE.speaker]
+--
+How does something like this?
+--
+
+== !
+
+++++
+<canvas width="800" height="600" id="myCanvas"/>
+<script type="text/javascript">
+const MAX_ITERATION = 80
+function mandelbrot(c) {
+    let z = { x: 0, y: 0 }, n = 0, p, d;
+    do {
+        p = {
+            x: Math.pow(z.x, 2) - Math.pow(z.y, 2),
+            y: 2 * z.x * z.y
+        }
+        z = {
+            x: p.x + c.x,
+            y: p.y + c.y
+        }
+        d = Math.sqrt(Math.pow(z.x, 2) + Math.pow(z.y, 2))
+        n += 1
+    } while (d <= 2 && n < MAX_ITERATION)
+    return [n, d <= 2]
+}
+
+var canvas = document.getElementById('myCanvas')
+var ctx = canvas.getContext('2d')
+
+const WIDTH = ctx.canvas.width
+const HEIGHT = ctx.canvas.height
+
+const REAL = { start: -2, range: 3 }
+const IMAGINARY = { start: -1, range: 2 }
+
+const colors = new Array(16).fill(0).map((_, i) => i === 0 ? '#000' : `#${((1 << 24) * Math.random() | 0).toString(16)}`)
+
+function draw() {
+    for (let i = 0; i < WIDTH; i++) {
+        for (let j = 0; j < HEIGHT; j++) {
+            complex = {
+                x: REAL.start + (i / WIDTH) * REAL.range,
+                y: IMAGINARY.start + (j / HEIGHT) * IMAGINARY.range
+            }
+
+            const [m, isMandelbrotSet] = mandelbrot(complex)
+            ctx.fillStyle = colors[isMandelbrotSet ? 0 : (m % colors.length - 1) + 1]
+            ctx.fillRect(i, j, 1, 1)
+        }
+    }
+}
+
+draw();
+</script>
+++++
+
+[NOTE.speaker]
+--
+How does something like this?
+--
+
+== !
+
+[large]#SOFTWARE#
+
+[NOTE.speaker]
+--
+Of course. We do it with software.
+--
+
+== !
+
+[large]#SOFTWARE#
+
+[medium]#SOFTWARE#
+
+SOFTWARE
+
+SOFTWARE
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[NOTE.speaker]
+--
+It's software all the way down. Obviously.
+--
+

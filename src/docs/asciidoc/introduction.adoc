@@ -18,13 +18,25 @@ Dan was kind enough to invite me to speak here at Brum.js a couple of years ago,
 
 [NOTE.speaker]
 --
-Since the invention of devices like this programmers have communicated with their computers through the medium of text.
+The invention of devices like this changed the way programmers communicate with their computers.
 
 This is a Teletype Model 33, introduced in 1963. There's a lovely chunky keyboard there, and the output is printed on this roll of paper here. These were only discontinued in 1981, which is pretty remarkable.
 
-High end video displays came in around 1970, with the more every day VT52 launching in 1974.
+Affordable high-end video displays came in around 1970, and by affordable I mean about $10000. The more every day VT52 launched in 1974, and that probably marked that start of the decline of the teletype.
 
-These days of course, many  of are rocking
+The shadow cast by those early devices is still with us
+
+* the /dev/tty on your Linux boxes
+* Ray Tomlinson chose @ as the address separator - it was one of the symbols available on an ASR-33
+* The VT52 screen size was 24 rows by 80 columns
+
+These days of course, many of are rocking two, three, or even more screens. But despite all that screen space, of the incredible computer power of our CPUs and GPUs, we're still in the longest, deepest shadow cast by those mechanical teletypes.
+
+We communicate with our computers through the medium of text.
+
+When we want a computer to do something, we write - we type - a program that - hopefully - expresses what that something is. Then - all things being well - the computer does that thing.
+
+But ...
 --
 
 [background-image='images/the-matrix-digital-rain.jpg']
@@ -40,7 +52,7 @@ These days of course, many  of are rocking
 
 [source,javascript]
 --
-const canvas = document.getElementById('myCanvas')
+const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 
 const WIDTH = ctx.canvas.width

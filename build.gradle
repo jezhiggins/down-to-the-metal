@@ -21,6 +21,12 @@ revealjs {
   }
 }
 
+asciidoctorj {
+  modules {
+    diagram.use()
+  }
+}
+
 asciidoctorRevealJs {
   sources {
     include "index.adoc"

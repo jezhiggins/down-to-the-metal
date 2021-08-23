@@ -6,7 +6,7 @@
 
 Jez Higgins
 
-[NOTE.speaker]
+[.notes]
 --
 Hello everyone - I'm Jez. I'm a freelance software grandad and I'm available, on a very flexible freelance basis, to try and help prevent you from falling down the old mine shaft :)
 
@@ -16,7 +16,7 @@ Dan was kind enough to invite me to speak here at Brum.js a couple of years ago,
 [background-image='images/ASR-33_2.jpg']
 == !
 
-[NOTE.speaker]
+[.notes]
 --
 The invention of devices like this changed the way programmers communicate with their computers.
 
@@ -77,7 +77,7 @@ for (let i = 0; i < WIDTH; ++i) {
 }
 --
 
-[NOTE.speaker]
+[.notes]
 --
 How does something like this?
 --
@@ -135,7 +135,7 @@ draw();
 </script>
 ++++
 
-[NOTE.speaker]
+[.notes]
 --
 How does something like this?
 --
@@ -144,7 +144,7 @@ How does something like this?
 
 [large]#SOFTWARE#
 
-[NOTE.speaker]
+[.notes]
 --
 Of course. We do it with software.
 --
@@ -175,8 +175,35 @@ SOFTWARE
 
 [small]#SOFTWARE#
 
-[NOTE.speaker]
+[.notes]
 --
 It's software all the way down. Obviously.
 --
 
+== !
+
+[ditaa, "mystery-software", "svg"]
+--
+
++---------------+         +---------------+         +---------------+
+|               |         |               |         |               |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|    program    |  ---->  |      *?*      |  ---->  |    actions    |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|            {d}|         |               |         |           {io}|
++---------------+         +---------------+         +---------------+
+
+--
+
+[.notes]
+--
+A picture paints a thousand words, right?
+
+This evening, we're going to work across this little diagram.
+
+We'll write a little program, crack open the mystery box in the middle, and then have a look at what those actions might be.
+--

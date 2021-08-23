@@ -18,6 +18,11 @@
   line-height: 1.1em;
 }
 
+.reveal section img {
+  border: none;
+  box-shadow: none;
+}
+
 .white {
   color: ghostwhite;
   text-shadow: -2px -2px 1px #000, 2px -2px 1px #000, -2px 2px 1px #000, 2px 2px 1px #000;

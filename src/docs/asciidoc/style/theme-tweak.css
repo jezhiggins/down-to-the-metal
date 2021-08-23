@@ -34,3 +34,9 @@
 .small {
   font-size: 0.75em
 }
+
+.attribution {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}

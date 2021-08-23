@@ -13,6 +13,20 @@ Hello everyone - I'm Jez. I'm a freelance software grandad and I'm available, on
 Dan was kind enough to invite me to speak here at Brum.js a couple of years ago, during which I didn't mention JavaScript once. There will, however, be some JavaScript this evening.
 --
 
+[background-image='images/ASR-33_2.jpg']
+== !
+
+[NOTE.speaker]
+--
+Since the invention of devices like this programmers have communicated with their computers through the medium of text.
+
+This is a Teletype Model 33, introduced in 1963. There's a lovely chunky keyboard there, and the output is printed on this roll of paper here. These were only discontinued in 1981, which is pretty remarkable.
+
+High end video displays came in around 1970, with the more every day VT52 launching in 1974.
+
+These days of course, many  of are rocking
+--
+
 [background-image='images/the-matrix-digital-rain.jpg']
 == !
 

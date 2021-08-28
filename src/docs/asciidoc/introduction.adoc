@@ -190,7 +190,7 @@ It's software all the way down. Obviously.
 |               |         |               |         |               |
 |               |         |               |         |               |
 |               |         |               |         |               |
-|    program    |  ---->  |      *?*      |  ---->  |    actions    |
+|    program    |  ---->  |       ?       |  ---->  |    actions    |
 |               |         |               |         |               |
 |               |         |               |         |               |
 |               |         |               |         |               |
@@ -205,5 +205,7 @@ A picture paints a thousand words, right?
 
 This evening, we're going to work across this little diagram.
 
-We'll write a little program, crack open the mystery box in the middle, and then have a look at what those actions might be.
+We'll write a little program, crack open the mystery software box in the middle, and then have a look at what those actions might be.
+
+There are more things we can do here than just what the program says to do.
 --

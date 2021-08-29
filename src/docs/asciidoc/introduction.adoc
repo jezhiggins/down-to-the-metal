@@ -190,7 +190,11 @@ It's software all the way down. Obviously.
 |               |         |               |         |               |
 |               |         |               |         |               |
 |               |         |               |         |               |
+|               |         |               |         |               |
+|               |         |               |         |               |
 |    program    |  ---->  |       ?       |  ---->  |    actions    |
+|               |         |               |         |               |
+|               |         |               |         |               |
 |               |         |               |         |               |
 |               |         |               |         |               |
 |               |         |               |         |               |

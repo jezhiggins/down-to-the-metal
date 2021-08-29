@@ -1,0 +1,159 @@
+== !
+
+[ditaa, "mystery-software", "svg"]
+--
+
++---------------+         +---------------+         +---------------+
+|               |         |               |         |               |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|    program    |  ---->  |       ?       |  ---->  |    actions    |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|               |         |               |         |               |
+|            {d}|         |               |         |           {io}|
++---------------+         +---------------+         +---------------+
+
+--
+
+[.notes]
+--
+So we've got our program, so it's time to crack open our mystery software box.
+
+Let's have a think about what's happening inside here.
+
+* we've got the read the program
+
+* we've got to make sense of the program
+
+Those are two separate things - reading and comprehension are not the same.
+
+Once our little piece of software has read and made sense of it, we can
+
+* go through and actually execute the program, we can perform those actions.
+--
+
+== !
+
+[ditaa, "not-so-mystery-software", "svg"]
+--
+
++---------------+         +---------------+         +---------------+
+|               |         | +-----------+ |         |               |
+|               |         | |           | |         |               |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|    program    |  ---->  | |           | |  ---->  |    actions    |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|               |         | |           | |         |               |
+|            {d}|         | +-----------+ |         |           {io}|
++---------------+         +---------------+         +---------------+
+
+--
+
+[.notes]
+--
+So within our piece of software we've got these three separate little subsystems, and because _computer science_ we can't just call them the reading, making sense, and doing parts.
+--
+
+== !
+
+[ditaa, "lexer-mystery-software", "svg"]
+--
+
++---------------+         +---------------+         +---------------+
+|               |         | +-----------+ |         |               |
+|               |         | |   lexer   | |         |               |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|    program    |  ---->  | |           | |  ---->  |    actions    |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|               |         | |           | |         |               |
+|            {d}|         | +-----------+ |         |           {io}|
++---------------+         +---------------+         +---------------+
+
+--
+
+[.notes]
+--
+First we have the lexer.
+
+The lexer is going to read our program source.
+--
+
+== !
+
+[ditaa, "lexer-parser-mystery-software", "svg"]
+--
+
++---------------+         +---------------+         +---------------+
+|               |         | +-----------+ |         |               |
+|               |         | |   lexer   | |         |               |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|    program    |  ---->  | |   parser  | |  ---->  |    actions    |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|               |         | |           | |         |               |
+|            {d}|         | +-----------+ |         |           {io}|
++---------------+         +---------------+         +---------------+
+
+--
+
+[.notes]
+--
+The parser is going to take what the lexer has read, and make sense of it.
+--
+
+== !
+
+[ditaa, "lexer-parser-evaluator-mystery-software", "svg"]
+--
+
++---------------+         +---------------+         +---------------+
+|               |         | +-----------+ |         |               |
+|               |         | |   lexer   | |         |               |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|    program    |  ---->  | |   parser  | |  ---->  |    actions    |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|               |         | | evaluator | |         |               |
+|            {d}|         | +-----------+ |         |           {io}|
++---------------+         +---------------+         +---------------+
+
+--
+
+[.notes]
+--
+And finally the evaluator,
+
+or the executor, or the execution engine, or the code generator
+
+And we call this whole thing, as you've probably guessed, an interpreter or a compiler.
+
+So we have our three elements in our piece of software here. Let's zoom in on the first one, on our lexer.
+--

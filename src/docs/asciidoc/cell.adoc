@@ -61,7 +61,7 @@ Or we can define a function - square = ...
 And we can call a function like this - n2 = square ...
 --
 
-==!
+== !
 
 [source]
 --

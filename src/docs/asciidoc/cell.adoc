@@ -148,3 +148,26 @@ Lexical scoping and closures!
 And that's it! That's cell.
 --
 
+== !
+
+.lucas.cell
+[source]
+--
+lucas_r = {:(a, b, n)
+  print(a);
+  if (not(equals(0, n)), { lucas_r(b, a+b, n-1); }, {});
+};
+
+lucas = {:(n)
+  lucas_r(2, 1, n-1);
+};
+
+lucas(10);
+--
+
+[.notes]
+--
+We can all read this now, right?
+
+This generates the Lucas numbers, which is similar to the Fibonacci numbers, but less well known :)
+--

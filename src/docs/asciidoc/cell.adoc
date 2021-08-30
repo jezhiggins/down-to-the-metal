@@ -1,6 +1,5 @@
 == !
 
-.lucas.cell
 [source]
 --
 lucas_r = {:(a, b, n)
@@ -17,8 +16,6 @@ lucas(10);
 
 [.notes]
 --
-I promised you some JavaScript. This is not yet it.
-
 In the little picture I just showed you, we started on the left with a program of some sort. Now, that could have been a JavaScript program, or any other language you fancied actually, but that would make the rest of what we're going to talk about much more complicated and long-winded, and you know, you've got homes to go to and all that.
 
 Instead, our little example program is in a language you almost certainly haven't heard of. The language is called *cell*, and it was invented by my friend Andy Balaam for a conference session he did a few years ago.
@@ -28,9 +25,9 @@ Instead, our little example program is in a language you almost certainly haven'
 
 Cell is a programming language with
 
+[%step]
 * a short implementation
-
-Andy says "there is nothing else good about it"
+* there is nothing else good about it, according to Andy
 
 [.notes]
 --
@@ -76,6 +73,7 @@ sqrt(-1)
 
 [.notes]
 --
+Everything in cell is an expression - 3
 Cell only has four expression types
 
 * assignment - put a value into a name
@@ -88,7 +86,9 @@ Cell only has four expression types
 
 :(x, y) are the function params, x*x+y*y is the body of the function. The return value is the last expression evaluated in the function.
 
-Can't reassign names, althoug there is a magic function to do that.
+Can't reassign names, although there is a standard function to do that.
+
+Cell has no keywords, but it does have a small standard library.
 --
 
 == !
@@ -104,6 +104,8 @@ if(
 
 [.notes]
 --
+Probably the most immediately useful of the standard functions is `if`. That's right, `if` is a function
+
 `if` is a function, this is the condition, the function to execute if its true, and the function to execution if it isn't.
 --
 
@@ -112,12 +114,42 @@ if(
 [source]
 --
 x = "BrumJS";
+
 fn = {
   x = "Hello";
   print( x );
 };
+
 fn();
+
 print( x );
+--
+
+[.notes]
+--
+Scoping is normal.
+--
+
+== !
+
+[source]
+--
+x = "BrumJS";
+
+fn = {
+  x = "Hello";
+  print( x );
+};
+
+fn();
+
+print( x );
+--
+
+[source]
+--
+Hello
+World
 --
 
 [.notes]
@@ -143,14 +175,13 @@ thing();
 
 [.notes]
 --
-Lexical scoping and closures!
+First class functions and closures!
 
 And that's it! That's cell.
 --
 
 == !
 
-.lucas.cell
 [source]
 --
 lucas_r = {:(a, b, n)

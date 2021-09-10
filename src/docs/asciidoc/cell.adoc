@@ -33,6 +33,8 @@ Cell is a programming language with
 --
 Cell is, Andy says, a programming language with a short implementation and that there is nothing else good about it. I'm not sure about that.
 
+Andy's original Cell implementation was in Python. For this talk I wrote a new implementation in JavaScript.
+
 Cell is a very simple language, but even the simplest language gives us enough to keep things interesting.
 
 Let's have a quick look at it.

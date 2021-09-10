@@ -1,0 +1,70 @@
+== !
+
+[large]#LEXER#
+
+[.notes]
+--
+Our first stage is the lexer.
+--
+
+== !
+
+[large]#LEXICAL ANALYSER#
+
+[.notes]
+--
+The full name is, by the way, the lexical analyser, because it performs _lexical analysis_. That's obviously a bit of a mouthful, hence _lexer_, but you might also hear it called the _scanner_ or the _tokenizer_.
+--
+
+== !
+
+[large]#LEXER#
+
+[.notes]
+--
+Our first stage is the lexer, and the job of the lexer is to read our program code. It doesn't understand - it applies no meaning to the code it's reading. It's job is solely to read the code, and get it into a from to pass onto our second stage - our parser.
+--
+
+== !
+
+[source]
+--
+print("Hello!");
+--
+
+[.notes]
+--
+Here's a piece of our Cell code. Our lexer is going to scan along this line, along this sequence of characters, looking for things it recognises.
+
+Things it recognises, what are called _lexemes_, could be a single character, a known sequence - that doesn't apply in cell, but for JavaScript that could be a language keyword, or it could little sequence of characters with particular characteristics - they're betweem quote marks, say.
+
+When the lexer finds a lexeme, it creates a _token_. The token holds the lexeme, that sequence of characters it's identified, and some information about that that lexeme is, some type information.
+
+For our little example here, there are five lexemes, so we get five tokens.
+--
+
+== !
+
+[source]
+--
+print("Hello!");
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+[ '(', '' ]
+[ 'string', 'Hello!' ]
+[ ')', '' ]
+[ ';', '' ]
+--
+
+[.notes]
+--
+In our Cell implementation, the token is just a little two value array, where the first element is the token type, and second element is the value of that token. You can see that some tokens are themselves - if the type is left bracket there's no need to also give a value that's a left bracket.
+
+That's all you need.
+
+In some more sophisticated lexers, the token might also include file information, line number, that kind of thing.
+--
+

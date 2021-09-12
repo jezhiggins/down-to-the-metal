@@ -27,7 +27,7 @@ Cell is a programming language with
 
 [%step]
 * a short implementation
-* there is nothing else good about it, according to Andy
+* nothing else good about it, according to Andy
 
 [.notes]
 --
@@ -98,7 +98,7 @@ Cell has no keywords, but it does have a small standard library.
 [source]
 --
 if(
-  is_odd( 3 ),
+  is_odd(3),
   { print "Odd!"; },
   { print "Even."; }
 );
@@ -119,12 +119,12 @@ x = "BrumJS";
 
 fn = {
   x = "Hello";
-  print( x );
+  print(x);
 };
 
 fn();
 
-print( x );
+print(x);
 --
 
 [.notes]
@@ -140,12 +140,12 @@ x = "BrumJS";
 
 fn = {
   x = "Hello";
-  print( x );
+  print(x);
 };
 
 fn();
 
-print( x );
+print(x);
 --
 
 [source]
@@ -203,4 +203,34 @@ lucas(10);
 We can all read this now, right?
 
 This generates the Lucas numbers, which is similar to the Fibonacci numbers, but less well known :)
+--
+
+== !
+
+[source]
+--
+lucas_r = {:(a, b, n)
+  print(a);
+  if (not(equals(0, n)), { lucas_r(b, a+b, n-1); }, {});
+};
+
+lucas = {:(n)
+  lucas_r(2, 1, n-1);
+};
+
+lucas(10);
+--
+
+[source]
+--
+2
+1
+3
+4
+7
+11
+18
+29
+47
+76
 --

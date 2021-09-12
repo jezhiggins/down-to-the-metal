@@ -182,7 +182,7 @@ It's software all the way down. Obviously.
 
 == !
 
-[ditaa, "mystery-software", "svg"]
+[ditaa, "images/mystery-software", "svg"]
 --
 
 +---------------+         +---------------+         +---------------+

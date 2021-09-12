@@ -1,6 +1,6 @@
 == !
 
-[large]#LEXER#
+[large]#Lexer#
 
 [.notes]
 --
@@ -9,7 +9,7 @@ Our first stage is the lexer.
 
 == !
 
-[large]#LEXICAL ANALYSER#
+[large]#Lexical Analyser#
 
 [.notes]
 --
@@ -18,7 +18,7 @@ The full name is, by the way, the lexical analyser, because it performs _lexical
 
 == !
 
-[large]#LEXER#
+[large]#Lexer#
 
 [.notes]
 --
@@ -36,7 +36,7 @@ print("Hello!");
 --
 Here's a piece of our Cell code. Our lexer is going to scan along this line, along this sequence of characters, looking for things it recognises.
 
-Things it recognises, what are called _lexemes_, could be a single character, a known sequence - that doesn't apply in cell, but for JavaScript that could be a language keyword, or it could little sequence of characters with particular characteristics - they're betweem quote marks, say.
+Things it recognises, what are called _lexemes_, could be a single character, a known sequence - that doesn't apply in cell, but for JavaScript that could be a language keyword, or it could little sequence of characters with particular characteristics - they're between quote marks, say.
 
 When the lexer finds a lexeme, it creates a _token_. The token holds the lexeme, that sequence of characters it's identified, and some information about that that lexeme is, some type information.
 
@@ -47,7 +47,7 @@ For our little example here, there are five lexemes, so we get five tokens.
 
 [source]
 --
-print("Hello!");
+print ( "Hello!" );
 --
 
 [source]
@@ -61,10 +61,75 @@ print("Hello!");
 
 [.notes]
 --
-In our Cell implementation, the token is just a little two value array, where the first element is the token type, and second element is the value of that token. You can see that some tokens are themselves - if the type is left bracket there's no need to also give a value that's a left bracket.
+In our Cell implementation, the token is just a little two value array, where the first element is the token type, and second element is the value of that token.
 
-That's all you need.
+You can see that some tokens are themselves - if the type is left bracket there's no need to also give a value that's a left bracket.
+
+You might notice that it's discarded some information - specifically the whitespace around the brackets. That's fine. We don't need that later on, so we can chuck it away. If we had comments, for instance, they play no part in the program execution, so we can ignore them at this stage.
 
 In some more sophisticated lexers, the token might also include file information, line number, that kind of thing.
+
+The lexer then takes our source code and converts it into a stream of these tokens, with the tokens capturing some essential element of the code. The lexer places no meaning on those tokens, but it's not entirely without intelligence.
+
+The lexer knows the shape of the code - that lines have this particular structure, that these are the valid characters, that if I see a left bracket then we should expect to see a right bracket at some point, one we have this particular keyword we can expect another set of keywords to follow. In JavaScript or C# or Kotlin or whatever, when we see the keyword "class" we know the code that follows should have particular form.
 --
 
+== !
+
+[source]
+--
+print ( "Hello!" );
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+[ '(', '' ]
+[ 'string', 'Hello!' ]
+[ ')', '' ]
+[ ';', '' ]
+--
+
+[.notes]
+--
+The lexer knows the shape of the code - that lines have this particular structure, that these are the valid characters, that if I see a left bracket then we should expect to see a right bracket at some point, one we have this particular keyword we can expect another set of keywords to follow. In JavaScript or C# or Kotlin or whatever, when we see the keyword "class" we know the code that follows should have particular form.
+
+The whole subject of this talk is balanced on the precipice of the computer science, and I don't want to fall down into that abyss, but maybe we can risk a little peek.
+
+These rules, this description of the code, we call a grammar.
+--
+
+== !
+
+A *lexical grammar* is _a formal grammar describing the syntax of the tokens_.
+
+[.notes]
+--
+These rules, this description of the code, we call a grammar.
+
+The grammar defines the rules of the language, but not the meaning. Just because a program meets the lexical grammar has no bearing on whether that program is remotely correct.
+
+Because this is programming, we can always solve things using an extra level of indirection. If we have a formal grammar, then we can describe it our grammar using another grammar!
+--
+
+==!
+
+[code, ebnf]
+--
+identifier = alphabetic_character, { alphabetic_character | digit };
+number = digit, { digit };
+single_quoted_string = '\'', { all_characters - '\'' }, '\'';
+double_quoted_string = '"', { all_characters - '"' }, '"';
+string = single_quoted_string | double_quoted_string;
+--
+
+[.notes]
+--
+We haven't written a formal grammar for cell, but if we did part of it might look like this. This is EBNF - Extended Backus Naur Form - very commonly used for this kind of thing.
+
+An identifier is a letter followed by zero or more letters or digits, a number is a digit followed by zero or more digits, and so on.
+
+If you have a complete grammar for your language, then you don't even need to write the lexer for it. You can feed the grammar into a tool like ANTLR, and it will generate the code for you! Result!
+
+Because cell is deliberately simple, we don't need all that guff. We can just write it.
+--

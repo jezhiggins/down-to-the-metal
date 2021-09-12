@@ -1,6 +1,6 @@
 == !
 
-[ditaa, "mystery-software", "svg"]
+[ditaa, "images/mystery-software", "svg"]
 --
 
 +---------------+         +---------------+         +---------------+
@@ -40,7 +40,7 @@ Once our little piece of software has read and made sense of it, we can
 
 == !
 
-[ditaa, "not-so-mystery-software", "svg"]
+[ditaa, "images/not-so-mystery-software", "svg"]
 --
 
 +---------------+         +---------------+         +---------------+
@@ -68,7 +68,7 @@ So within our piece of software we've got these three separate little subsystems
 
 == !
 
-[ditaa, "lexer-mystery-software", "svg"]
+[ditaa, "images/lexer-mystery-software", "svg"]
 --
 
 +---------------+         +---------------+         +---------------+
@@ -98,7 +98,7 @@ The lexer is going to read our program source.
 
 == !
 
-[ditaa, "lexer-parser-mystery-software", "svg"]
+[ditaa, "images/lexer-parser-mystery-software", "svg"]
 --
 
 +---------------+         +---------------+         +---------------+
@@ -126,7 +126,7 @@ The parser is going to take what the lexer has read, and make sense of it.
 
 == !
 
-[ditaa, "lexer-parser-evaluator-mystery-software", "svg"]
+[ditaa, "images/lexer-parser-evaluator-mystery-software", "svg"]
 --
 
 +---------------+         +---------------+         +---------------+

@@ -5,6 +5,9 @@ Jez Higgins, jez@jezuk.co.uk
 :revealjs_theme: white
 :revealjs_transition: fade
 :revealjs_progress: false
+:revealjs_controls: false
+:revealjs_width: 1200
+:revealjs_height: 800
 
 include::introduction.adoc[]
 

@@ -101,7 +101,9 @@ These rules, this description of the code, we call a grammar.
 
 == !
 
-A *lexical grammar* is _a formal grammar describing the syntax of the tokens_.
+A *lexical grammar* is
+
+_a formal grammar describing the syntax of the tokens_.
 
 [.notes]
 --
@@ -112,9 +114,9 @@ The grammar defines the rules of the language, but not the meaning. Just because
 Because this is programming, we can always solve things using an extra level of indirection. If we have a formal grammar, then we can describe it our grammar using another grammar!
 --
 
-==!
+== !
 
-[code, ebnf]
+[source, ebnf]
 --
 identifier = alphabetic_character, { alphabetic_character | digit };
 number = digit, { digit };

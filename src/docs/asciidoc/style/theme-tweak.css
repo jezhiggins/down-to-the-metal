@@ -12,9 +12,12 @@
   float: right;
 }
 
+.reveal .slides {
+  width: auto;
+}
 .reveal pre code {
   max-height: unset;
-  padding: 2px;
+  padding: 32px;
   line-height: 1.1em;
 }
 

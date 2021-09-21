@@ -12,9 +12,15 @@
   float: right;
 }
 
+.scrollable-slide {
+  height: 800px;
+  overflow-y: auto !important;
+}
+
 .reveal .slides {
   width: auto;
 }
+
 .reveal pre code {
   max-height: unset;
   padding: 32px;
@@ -24,6 +30,7 @@
 .reveal section img {
   border: none;
   box-shadow: none;
+  width: 100%;
 }
 
 .white {

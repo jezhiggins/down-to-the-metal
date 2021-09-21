@@ -47,7 +47,7 @@ For our little example here, there are five lexemes, so we get five tokens.
 
 [source]
 --
-print ( "Hello!" );
+print("Hello!");
 --
 
 [source]
@@ -78,7 +78,7 @@ The lexer knows the shape of the code - that lines have this particular structur
 
 [source]
 --
-print ( "Hello!" );
+print ( "Hello!" ) ;
 --
 
 [source]
@@ -96,7 +96,7 @@ The lexer knows the shape of the code - that lines have this particular structur
 
 The whole subject of this talk is balanced on the precipice of the computer science, and I don't want to fall down into that abyss, but maybe we can risk a little peek.
 
-These rules, this description of the code, we call a grammar.
+These rules that tell us who to split the code up into token, this description of the structure of the code, we call a grammar.
 --
 
 == !
@@ -133,5 +133,12 @@ An identifier is a letter followed by zero or more letters or digits, a number i
 
 If you have a complete grammar for your language, then you don't even need to write the lexer for it. You can feed the grammar into a tool like ANTLR, and it will generate the code for you! Result!
 
-Because cell is deliberately simple, we don't need all that guff. We can just write it.
+Because cell is deliberately simple, we don't need all that guff. We can just write it.  Shall we have a quick look at it?
+--
+
+== !
+
+[source, javascript]
+--
+include::../../../../jscell/lib/lexer.js[]
 --

@@ -1,5 +1,3 @@
-[background-image='images/brumjs.png']
-[background-size='400px 600px']
 == !
 
 *Down to the Metal*
@@ -10,7 +8,7 @@ Jez Higgins
 --
 Hello everyone - I'm Jez. I'm a freelance software grandad and I'm available, on a very flexible freelance basis, to try and help prevent you from falling down the old mine shaft :)
 
-Dan was kind enough to invite me to speak here at Brum.js a couple of years ago, during which I didn't mention JavaScript once. There will, however, be some JavaScript this evening.
+You were kind enough to listen to my rambling tour through early 80s computing last year, and Alex has, perhaps foolishly, indulged me once again.
 --
 
 [background-image='images/ASR-33_2.jpg']
@@ -18,11 +16,15 @@ Dan was kind enough to invite me to speak here at Brum.js a couple of years ago,
 
 [.notes]
 --
-The invention of devices like this changed the way programmers communicate with their computers.
+At the risk of turning into something of a broken record, I'm going to open with an old piece of computer hardware. Actually a very old piece of hardware.
 
-This is a Teletype Model 33, introduced in 1963. There's a lovely chunky keyboard there, and the output is printed on this roll of paper here. These were only discontinued in 1981, which is pretty remarkable.
+This is a Teletype Model 33, introduced in 1963. There's a lovely chunky keyboard there, and the output is printed on this roll of paper here.
 
-Affordable high-end video displays came in around 1970, and by affordable I mean about $10000. The more every day VT52 launched in 1974, and that probably marked that start of the decline of the teletype.
+The invention of devices like this fundamentally changed the way programmers communicated with their computers.  Before devices like this computers were programmed by wiring up circuits - that's what they did at Bletchley Park, by toggling the bits into memory, or by punching holes into special cards or tapes. You could, apparently, literally bite the corrections into your program. But now, with a Teletype Model 33, you type something in, and lo! the computer could respond (almost) immediately by printing onto paper. You could interact with the computer in real time, you could issue commands and run programs and actually see the results. No longer did you have to write the program out by hand, punch a load of holes in a card, hand the cards to someone else, wait for them to process your cards, and perhaps the next day or next week get a print out that said 'Syntax Error'. Now, you could get that syntax error straightaway.  Absolutely revolutionary!
+
+These were only discontinued in 1981, by the way, which is pretty remarkable.
+
+Affordable high-end video displays came in around 1970, and by affordable I mean about $10000. The more every day VT52 launched in 1974, and that probably marked that beginning of the end for the teletypes.  (VT100 in 1978, and VT220 in 1983!)
 
 The shadow cast by those early devices is still with us
 
@@ -30,9 +32,9 @@ The shadow cast by those early devices is still with us
 * Ray Tomlinson chose @ as the address separator - it was one of the symbols available on an ASR-33
 * The VT52 screen size was 24 rows by 80 columns
 
-These days of course, many of are rocking two, three, or even more screens. But despite all that screen space, of the incredible computer power of our CPUs and GPUs, we're still in the longest, deepest shadow cast by those mechanical teletypes.
+These days of course, many of are rocking two, three, or even more screens. But despite all that screen space, of the incredible computer power of our CPUs and GPUs, we're still in the long, deep shadow cast by those mechanical teletypes.
 
-We communicate with our computers through the medium of text.
+Because we communicate with our computers through the medium of text.
 
 When we want a computer to do something, we write - we type - a program that - hopefully - expresses what that something is. Then - all things being well - the computer does that thing.
 

@@ -115,7 +115,7 @@ Probably the most immediately useful of the standard functions is `if`. That's r
 
 [source]
 --
-x = "BrumJS";
+x = "NorDev";
 
 fn = {
   x = "Hello";
@@ -136,7 +136,7 @@ Scoping is normal.
 
 [source]
 --
-x = "BrumJS";
+x = "NorDev";
 
 fn = {
   x = "Hello";
@@ -151,7 +151,7 @@ print(x);
 [source]
 --
 Hello
-World
+NorDev
 --
 
 [.notes]
@@ -164,7 +164,7 @@ Scoping is normal.
 [source]
 --
 outerfn = {
-  x = 12;
+  x = "Captured!";
   innerfn = {
     print(x);
   };
@@ -173,6 +173,32 @@ outerfn = {
 
 thing = outerfn();
 thing();
+--
+
+[.notes]
+--
+First class functions and closures!
+--
+
+== !
+
+[source]
+--
+outerfn = {
+  x = "Captured!";
+  innerfn = {
+    print(x);
+  };
+  innerfn;
+};
+
+thing = outerfn();
+thing();
+--
+
+[source]
+--
+Captured!
 --
 
 [.notes]

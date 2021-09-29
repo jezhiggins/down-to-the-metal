@@ -1,10 +1,10 @@
 == !
 
-[ditaa, "images/mystery-software", "svg"]
+[ditaa, "images/slightly-mystery-software", "svg"]
 --
 
 +---------------+         +---------------+         +---------------+
-|               |         |               |         |               |
+|cGRE           |         |               |         |               |
 |               |         |               |         |               |
 |               |         |               |         |               |
 |               |         |               |         |               |
@@ -50,7 +50,7 @@ Once our little piece of software has read and made sense of it, we can
 --
 
 +---------------+         +---------------+         +---------------+
-|               |         | +-----------+ |         |               |
+|cGRE           |         | +-----------+ |         |               |
 |               |         | |           | |         |               |
 |               |         | |           | |         |               |
 |               |         | |           | |         |               |
@@ -84,7 +84,7 @@ So within our piece of software we've got these three separate little subsystems
 --
 
 +---------------+         +---------------+         +---------------+
-|               |         | +-----------+ |         |               |
+|cGRE           |         | +-----------+ |         |               |
 |               |         | |           | |         |               |
 |               |         | |   lexer   | |         |               |
 |               |         | |           | |         |               |
@@ -120,7 +120,7 @@ The lexer is going to read our program source.
 --
 
 +---------------+         +---------------+         +---------------+
-|               |         | +-----------+ |         |               |
+|cGRE           |         | +-----------+ |         |               |
 |               |         | |           | |         |               |
 |               |         | |   lexer   | |         |               |
 |               |         | |           | |         |               |
@@ -154,7 +154,7 @@ The parser is going to take what the lexer has read, and make sense of it.
 --
 
 +---------------+         +---------------+         +---------------+
-|               |         | +-----------+ |         |               |
+|cGRE           |         | +-----------+ |         |               |
 |               |         | |           | |         |               |
 |               |         | |   lexer   | |         |               |
 |               |         | |           | |         |               |

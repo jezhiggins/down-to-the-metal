@@ -28,3 +28,136 @@ The lexer, remember, isn't giving any meaning to these the tokens, it's just say
 
 The job of the parser is to read that stream of tokens, and start to understand & apply structure to those tokens.
 --
+
+== !
+
+[source]
+--
+print ( "Hello!" ) ;
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+[ '(', '' ]
+[ 'string', 'Hello!' ]
+[ ')', '' ]
+[ ';', '' ]
+--
+
+[.notes]
+--
+Let's pop back to our little print line from a few moments ago.
+
+We can see what the line of code is, right?  We can read it and we just know it's a function call. We're call the function called print (or more properly in cell, the function assigned to the symbol print), and we're passing the string "hello".
+
+How do we know this?
+
+Because we're amazing!
+
+
+As we read it, we're actually moving back and forth between tokenising and parsing, we're unconsciously scanning forward and back all the time. We're using information that comes later in the line to provide context for something earlier.
+
+If any of you have children that you've helped to learn to read you'll perhaps recognise some of this process, particularly if your child had maybe dispraxia or some other reading comprehension problem and you had to start to break down your own processes.
+
+Obviously, computer programming languages are far less sophisticated that natural languages, and deliberately so. Even in cell, which is about as simple as you can get, parsing out this line has some complexity.
+--
+
+== !
+
+[source]
+--
+print ( "Hello!" ) ;
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+--
+
+[.notes]
+--
+Well that's just a symbol, could be anything.
+--
+
+== !
+
+[source]
+--
+print ( "Hello!" ) ;
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+[ '(', '' ]
+--
+
+[.notes]
+--
+Ah, it's a function call!
+--
+
+== !
+
+[source]
+--
+print ( "Hello!" ) ;
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+[ '(', '' ]
+[ 'string', 'Hello!' ]
+--
+
+[.notes]
+--
+Here's the parameter - Hello!
+--
+
+== !
+
+[source]
+--
+print ( "Hello!" ) ;
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+[ '(', '' ]
+[ 'string', 'Hello!' ]
+[ ')', '' ]
+--
+
+[.notes]
+--
+And it's the only one.
+--
+
+== !
+
+[source]
+--
+print ( "Hello!" ) ;
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+[ '(', '' ]
+[ 'string', 'Hello!' ]
+[ ')', '' ]
+[ ';', '' ]
+--
+
+[.notes]
+--
+And that's the end of this line. Cool.
+
+So, to understand this line, to parse it out, the most significant token is the left bracket.
+
+That bracket gives context to the token that came before, and also tells us what to expect in the tokens to come.
+--

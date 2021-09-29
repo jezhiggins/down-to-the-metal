@@ -1,0 +1,26 @@
+== !
+
+[large]#Parser#
+
+[.notes]
+--
+Second stage, parser.
+--
+
+== !
+
+[large]#Syntactic Analyser#
+
+[.notes]
+--
+Also called syntactic analyser, or syntax analyser.
+--
+
+== !
+
+[large]#Parser#
+
+[.notes]
+--
+Second stage, parser.
+--

@@ -22,5 +22,9 @@ Also called syntactic analyser, or syntax analyser.
 
 [.notes]
 --
-Second stage, parser.
+We have our code, which we've run through our lexer - (nearly said pass through there, which might have sounded confusing) - and our lexer is giving us this sequence of tokens.
+
+The lexer, remember, isn't giving any meaning to these the tokens, it's just saying "I've found these things, in this order".
+
+The job of the parser is to read that stream of tokens, and start to understand & apply structure to those tokens.
 --

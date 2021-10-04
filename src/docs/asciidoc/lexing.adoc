@@ -145,6 +145,78 @@ include::../../../../jscell/lib/lexer.js[]
 
 == !
 
+[source]
+--
+print ( "Hello!" ) ;
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+
+--
+
+== !
+
+[source]
+--
+print ( "Hello!" ) ;
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+[ '(', '' ]
+
+--
+
+== !
+
+[source]
+--
+print ( "Hello!" ) ;
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+[ '(', '' ]
+[ 'string', 'Hello!' ]
+--
+
+== !
+
+[source]
+--
+print ( "Hello!" ) ;
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+[ '(', '' ]
+[ 'string', 'Hello!' ]
+[ ')', '' ]
+--
+
+== !
+
+[source]
+--
+print ( "Hello!" ) ;
+--
+
+[source]
+--
+[ 'symbol, 'print' ]
+[ '(', '' ]
+[ 'string', 'Hello!' ]
+[ ')', '' ]
+[ ';', '' ]
+--
+
+== !
+
 [ditaa, "images/lexer-no-mystery", "svg"]
 --
 

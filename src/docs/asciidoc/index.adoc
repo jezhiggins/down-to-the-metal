@@ -2,8 +2,8 @@
 Jez Higgins, jez@jezuk.co.uk
 {docdate}
 :customcss: style/theme-tweak.css
-:revealjs_theme: white
-:revealjs_transition: fade
+:revealjs_theme: moon
+:revealjs_transition: none
 :revealjs_progress: false
 :revealjs_controls: false
 :revealjs_width: 1200

@@ -38,7 +38,7 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
+[ 'symbol', 'print' ]
 [ '(', '' ]
 [ 'string', 'Hello!' ]
 [ ')', '' ]
@@ -72,7 +72,7 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
+[ 'symbol', 'print' ]
 --
 
 [.notes]
@@ -89,7 +89,7 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
+[ 'symbol', 'print' ]
 [ '(', '' ]
 --
 
@@ -107,7 +107,7 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
+[ 'symbol', 'print' ]
 [ '(', '' ]
 [ 'string', 'Hello!' ]
 --
@@ -126,7 +126,7 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
+[ 'symbol', 'print' ]
 [ '(', '' ]
 [ 'string', 'Hello!' ]
 [ ')', '' ]
@@ -146,7 +146,7 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
+[ 'symbol', 'print' ]
 [ '(', '' ]
 [ 'string', 'Hello!' ]
 [ ')', '' ]
@@ -161,3 +161,164 @@ So, to understand this line, to parse it out, the most significant token is the 
 
 That bracket gives context to the token that came before, and also tells us what to expect in the tokens to come.
 --
+
+== !
+
+[source]
+--
+a + b;
+--
+
+[.notes]
+--
+Let's consider this line.
+--
+
+== !
+
+[source]
+--
+a + b;
+--
+
+[source]
+--
+['symbol', 'a']
+--
+
+== !
+
+[source]
+--
+a + b;
+--
+
+[source]
+--
+['symbol', 'a']
+['+', '']
+--
+
+== !
+
+[source]
+--
+a + b;
+--
+
+[source]
+--
+['symbol', 'a']
+['+', '']
+['symbol', 'b']
+--
+
+== !
+
+[source]
+--
+a + b;
+--
+
+[source]
+--
+['symbol', 'a']
+['+', '']
+['symbol', 'b']
+[';']
+--
+
+== 1
+
+[source]
+--
+total = a + b;
+--
+
+== !
+
+[source]
+--
+total = a + b;
+--
+
+[source]
+--
+['symbol', 'total']
+--
+
+== !
+
+[source]
+--
+total = a + b;
+--
+
+[source]
+--
+['symbol', 'total']
+['=', '']
+--
+
+== !
+
+[source]
+--
+total = a + b;
+--
+
+[source]
+--
+['symbol', 'total']
+['=', '']
+['symbol', 'a']
+--
+
+== !
+
+[source]
+--
+total = a + b;
+--
+
+[source]
+--
+['symbol', 'total']
+['=', '']
+['symbol', 'a']
+['+', '']
+--
+
+== !
+
+[source]
+--
+total = a + b;
+--
+
+[source]
+--
+['symbol', 'total']
+['=', '']
+['symbol', 'a']
+['+', '']
+['symbol', 'b']
+--
+
+== !
+
+[source]
+--
+total = a + b;
+--
+
+[source]
+--
+['symbol', 'total']
+['=', '']
+['symbol', 'a']
+['+', '']
+['symbol', 'b']
+[';', '']
+--
+

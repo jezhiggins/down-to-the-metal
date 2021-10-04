@@ -1,9 +1,3 @@
-== !
-
-*Down to the Metal*
-
-Jez Higgins
-
 [.notes]
 --
 Hello everyone - I'm Jez. I'm a freelance software grandad and I'm available, on a very flexible freelance basis, to try and help prevent you from falling down the old mine shaft :)

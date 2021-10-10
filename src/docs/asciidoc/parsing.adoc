@@ -33,7 +33,7 @@ The job of the parser is to read that stream of tokens, and start to understand 
 
 [source]
 --
-print ( "Hello!" ) ;
+print("Hello!");
 --
 
 [source]
@@ -67,7 +67,7 @@ Obviously, computer programming languages are far less sophisticated that natura
 
 [source]
 --
-print ( "Hello!" ) ;
+print("Hello!");
 --
 
 [source]
@@ -84,7 +84,7 @@ Well that's just a symbol, could be anything.
 
 [source]
 --
-print ( "Hello!" ) ;
+print("Hello!");
 --
 
 [source]
@@ -102,7 +102,7 @@ Ah, it's a function call!
 
 [source]
 --
-print ( "Hello!" ) ;
+print("Hello!");
 --
 
 [source]
@@ -121,7 +121,7 @@ Here's the parameter - Hello!
 
 [source]
 --
-print ( "Hello!" ) ;
+print("Hello!");
 --
 
 [source]
@@ -141,7 +141,7 @@ And it's the only one.
 
 [source]
 --
-print ( "Hello!" ) ;
+print("Hello!");
 --
 
 [source]
@@ -228,7 +228,7 @@ a + b;
 [';']
 --
 
-== 1
+== !
 
 [source]
 --
@@ -320,5 +320,230 @@ total = a + b;
 ['+', '']
 ['symbol', 'b']
 [';', '']
+--
+
+== !
+
+[source]
+--
+print("Hello");
+--
+
+[cols="1,1"]
+|===
+a|[source]
+--
+[ 'symbol', 'print' ]
+[ '(', '' ]
+[ 'string', 'Hello!' ]
+[ ')', '' ]
+[ ';', '' ]
+--
+a|[source]
+--
+[ call
+  [ symbol, print ]
+  [
+    [ string, 'Hello!' ]
+  ]
+]
+--
+|===
+
+== !
+
+[source]
+--
+a + b;
+--
+
+[cols="1,1"]
+|===
+a|[source]
+--
+[ 'symbol', 'a' ]
+[ '+', '' ]
+[ 'symbol', 'b' ]
+[ ';', '' ]
+--
+a|[source]
+--
+[ operation, +
+  [ symbol, a ]
+  [ symbol, b ]
+]
+--
+|===
+
+== !
+
+[source]
+--
+total = a + b;
+--
+
+[cols="1,1"]
+|===
+a|[source]
+--
+[ 'symbol', 'total' ]
+[ '=', '' ]
+[ 'symbol', 'a' ]
+[ 'operation', '+' ]
+[ 'symbol', 'b' ],
+[ ';', '' ]
+--
+a|[source]
+--
+[ assignment
+  [ symbol, total ]
+  [ operation, +
+    [ symbol, a ]
+    [ symbol, b ]
+  ]
+]
+--
+|===
+
+== !
+
+[source]
+--
+total = f1(a) + f2(a + b) + f3(a + b + c) + f4(a + b + c + d);
+--
+
+[source]
+--
+[ assignment
+  [ symbol, total ]
+  [ operation, +
+    [ call
+      [ symbol, f1 ]
+      [
+        [ symbol, a ]
+      ]
+    ]
+    [ operation, +
+      [ call
+        [ symbol, f2 ]
+        [
+          [ operation, +
+            [ symbol, a ]
+            [ symbol, b ]
+          ]
+        ]
+      ]
+      [ operation, +
+        [ call
+          [ symbol, f3 ]
+          [
+            [ operation, +
+              [ symbol, a ]
+              [ operation, +
+                [ symbol, b ]
+                [ symbol, c ]
+              ]
+            ]
+          ]
+        ]
+        [ call
+          [ symbol, f4 ]
+          [
+            [ operation, +
+              [ symbol, a ]
+              [ operation, +
+                [ symbol, b ]
+                [ operation, +
+                  [ symbol, c ]
+                  [ symbol, d ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  ]
+]
+--
+
+[.notes]
+--
+Clearly this tree of expressions could be arbitrarily deep.
+
+This tree is what the parser is all about building.
+
+This tree, the parse tree, or ...
+--
+
+== !
+
+[large]#Abstract Syntax Tree#
+
+[.notes]
+--
+Abstract Syntax Tree
+
+is the primary output of the parser.
+
+It's a tree, obviously, that reflects the syntax of the program. It's abstract in the sense that it necessarily directly reflect the code as written.
+
+For example in languages with operator precedence, say, or rules about function parameter evaluation order, we would reflect those in the AST.
+
+Let's have a look at Cell's parser.
+--
+
+== !
+
+[source, javascript]
+--
+include::../../../../jscell/lib/parser.js[]
+--
+
+[.notes]
+--
+It is, as you might expect, a little bit more involved that the lexer - it's a little over twice as long - but it's not hugely complex.
+
+As with the lexer, this is put together as a JavaScript generator. You pass in the token stream, and it gives you back a series of AST, abstract syntax trees. (We can think of the program as either one big syntax tree, or a series of smaller ASTs with each one representing a block of code, a function definition, or whatever. Whichever is more useful at the time.)
+
+This function _expression_ is where the work happens.
+
+We get the token, and decompose it into its type and value. Then we say, well, what's the type.
+
+Let's think about our print("Hello!"); example.
+In the examples we've been looking at we started with a symbol, then we call back in, and our next token is the left bracket ...
+
+We call back in and back in as we build our little trees at each stage. This is a computer science classic - the recursive descent parser. We're finding the top-most piece of our tree, then we recurse down until we've exhausted the input and filled out all the leaves. (LL parser - find leftmost).
+
+Is that clear - does that all make sense.
+--
+
+== !
+
+[ditaa, "images/parser-no-mystery", "svg"]
+--
+
++---------------+         +---------------+         +---------------+
+|cGRE           |         | +-----------+ |         |               |
+|               |         | | cPNK      | |         |               |
+|               |         | |   lexer   | |         |               |
+|               |         | |           | |         |               |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|               |         | |cPNK       | |         |               |
+|    program    |  ---->  | |  parser   | |  ---->  |    actions    |
+|               |         | |           | |         |               |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|               |         | |           | |         |               |
+|               |         | | evaluator | |         |               |
+|               |         | |           | |         |               |
+|            {d}|         | +-----------+ |         |           {io}|
++---------------+         +---------------+         +---------------+
+
 --
 

@@ -1,0 +1,51 @@
+== !
+
+[large]#Evaluator#
+
+== !
+
+[large]#Evaluation Engine#
+
+== !
+
+[large]#Interpreter#
+
+== !
+
+[large]#Code Generator#
+
+== !
+
+[large]#Compiler#
+
+[.notes]
+--
+Computer science has given up a little bit at this point, so there isn't a canonical name.
+--
+
+== !
+
+[large]#Abstract Interpreter#
+
+or
+
+[large]#Solver#
+
+[.notes]
+--
+Unless you think this last step is called an abstract interpreter (or possibly a solver), in which case we're into deep, deep computer science and that's a whole different talk (which I will be happy to come back and given another time).
+--
+
+== !
+
+[source]
+--
+include::../../../../jscell/lib/evaluator.js[]
+--
+
+[.notes]
+--
+Here's Cell's evaluator. This is 98 lines, so smaller than the parser, but a just shy of twice as long as the lexer.
+
+This reads a stream of ASTs, here in the `evaluate` function. Each AST is passes to `eval_expression`, which returns the Cell value which is the result of that expression.
+--

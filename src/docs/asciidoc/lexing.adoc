@@ -52,11 +52,11 @@ print("Hello!");
 
 [source]
 --
-[ 'symbol, 'print' ]
-[ '(', '' ]
-[ 'string', 'Hello!' ]
-[ ')', '' ]
-[ ';', '' ]
+[ symbol, 'print' ]
+[ (, '' ]
+[ string, 'Hello!' ]
+[ ), '' ]
+[ ;, '' ]
 --
 
 [.notes]
@@ -83,11 +83,11 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
-[ '(', '' ]
-[ 'string', 'Hello!' ]
-[ ')', '' ]
-[ ';', '' ]
+[ symbol, 'print' ]
+[ (, '' ]
+[ string, 'Hello!' ]
+[ ), '' ]
+[ ;, '' ]
 --
 
 [.notes]
@@ -152,7 +152,7 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
+[ symbol, 'print' ]
 
 --
 
@@ -165,8 +165,8 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
-[ '(', '' ]
+[ symbol, 'print' ]
+[ (, '' ]
 
 --
 
@@ -179,9 +179,9 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
-[ '(', '' ]
-[ 'string', 'Hello!' ]
+[ symbol, 'print' ]
+[ (, '' ]
+[ string, 'Hello!' ]
 --
 
 == !
@@ -193,10 +193,10 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
-[ '(', '' ]
-[ 'string', 'Hello!' ]
-[ ')', '' ]
+[ symbol, 'print' ]
+[ (, '' ]
+[ string, 'Hello!' ]
+[ ), '' ]
 --
 
 == !
@@ -208,11 +208,11 @@ print ( "Hello!" ) ;
 
 [source]
 --
-[ 'symbol, 'print' ]
-[ '(', '' ]
-[ 'string', 'Hello!' ]
-[ ')', '' ]
-[ ';', '' ]
+[ symbol, 'print' ]
+[ (, '' ]
+[ string, 'Hello!' ]
+[ ), '' ]
+[ ;, '' ]
 --
 
 == !

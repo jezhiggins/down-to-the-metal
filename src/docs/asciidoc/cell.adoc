@@ -27,7 +27,7 @@ Cell is a programming language with
 
 [%step]
 * a short implementation
-* nothing else good about it, according to Andy
+* nothing else good about it
 
 [.notes]
 --
@@ -75,8 +75,8 @@ sqrt(-1)
 
 [.notes]
 --
-Everything in cell is an expression - 3
-Cell only has four expression types
+Everything in cell is an expression.
+Cell has four expression types
 
 * assignment - put a value into a name
 

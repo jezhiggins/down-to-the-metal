@@ -1,6 +1,6 @@
 [.notes]
 --
-Hello everyone - I'm Jez. I'm a freelance software grandad and I'm available, on a very flexible freelance basis, to try and help prevent you from falling down the old mine shaft :)
+Hello everyone - I'm Jez. I'm a freelance software grandad and I'm available, on a very flexible freelance basis, to help prevent you from falling down the old mine shaft :)
 
 You were kind enough to listen to my rambling tour through early 80s computing last year, and Alex has, perhaps foolishly, indulged me once again.
 --

@@ -23,7 +23,7 @@ include::eval.adoc[]
 
 ++++
 <div id="talk-header" class="slide-header">
-  <small class="slide-header-text">NorDev October 2021, @jezhiggins</small>
+  <small class="slide-header-text">Nor(Dev): October 2021, @jezhiggins</small>
 </div>
 <script type="text/javascript">
     window.addEventListener("load", function() {

@@ -38,6 +38,56 @@ Unless you think this last step is called an abstract interpreter (or possibly a
 
 == !
 
+[large]#Evaluator#
+
+[.notes]
+--
+Leaving aside what we call it, the evaluator is where the magic happens.
+
+It takes the AST that the parser has produced, and it evaluates it.
+
+Well, what does that mean?
+
+Cell is an interpreted language, so that means our evaluator is going to walk the ASTs, and does what they say! Obviously!
+--
+
+== !
+
+[source]
+--
+total = a + b;
+--
+
+[source]
+--
+[ assignment
+  [ symbol, total ]
+  [ operation, +
+    [ symbol, a ]
+    [ symbol, b ]
+  ]
+]
+--
+
+[.notes]
+--
+Here's one our earlier examples, _total = a + b_, and the AST representation.
+
+Our interpreter is going to start at the top here, and look at the type of the AST node.
+
+It's an _assignment_, so it know there are two operands to consider. The first must be a symbol, the name of the variable, and the second is the value we're going to associate with that name.
+
+In fact, that value is an _expression_, so it's has to evaluate that first. So it looks at the type of that AST node, which here is an _operation_. An operation's first operands it the actual operand to perform, then the next two are the values to operate on.
+
+Again, those values are expressions, so they need to be evaluated. You can see we're recursing down again. In this context, evaluating a symbol means looking up to find the value associated with that name.
+
+When we've looked up _a_ and _b_, we can evaluate the plus operation, pass that value back up to the assignment and, finally, pop that value away wherever it is we keep the name/value pairs that make up our stack or heap or whatever.
+
+Easy, right.
+--
+
+== !
+
 [source]
 --
 include::../../../../jscell/lib/evaluator.js[]
@@ -47,5 +97,36 @@ include::../../../../jscell/lib/evaluator.js[]
 --
 Here's Cell's evaluator. This is 98 lines, so smaller than the parser, but a just shy of twice as long as the lexer.
 
+You can see recursive nature here, pretty much immediately.
+
 This reads a stream of ASTs, here in the `evaluate` function. Each AST is passes to `eval_expression`, which returns the Cell value which is the result of that expression.
 --
+
+
+[ditaa, "images/in-the-pink-no-mystery", "svg"]
+--
+
++---------------+         +---------------+         +---------------+
+|cGRE           |         | +-----------+ |         | cGRE          |
+|               |         | | cPNK      | |         |               |
+|               |         | |   lexer   | |         |               |
+|               |         | |           | |         |               |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|               |         | |cPNK       | |         |               |
+|    program    |  ---->  | |  parser   | |  ---->  |    actions    |
+|               |         | |           | |         |               |
+|               |         | +-----------+ |         |               |
+|               |         |       |       |         |               |
+|               |         |       v       |         |               |
+|               |         | +-----------+ |         |               |
+|               |         | |cPNK       | |         |               |
+|               |         | | evaluator | |         |               |
+|               |         | |           | |         |               |
+|            {d}|         | +-----------+ |         |           {io}|
++---------------+         +---------------+         +---------------+
+
+--
+

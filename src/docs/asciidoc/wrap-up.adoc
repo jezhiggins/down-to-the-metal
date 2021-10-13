@@ -1,0 +1,46 @@
+== !
+
+image::images/in-the-pink-no-mystery.svg[]
+
+== !
+
+[large]#SOFTWARE#
+
+[.notes]
+--
+--
+
+== !
+
+[large]#SOFTWARE#
+
+[medium]#SOFTWARE#
+
+SOFTWARE
+
+SOFTWARE
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[small]#SOFTWARE#
+
+[.notes]
+--
+--
+
+== !
+
+image::images/in-the-pink-no-mystery.svg[]
+

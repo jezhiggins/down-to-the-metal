@@ -5,7 +5,6 @@ Jez Higgins, jez@jezuk.co.uk
 :revealjs_theme: moon
 :revealjs_transition: none
 :revealjs_progress: false
-:revealjs_controls: false
 :revealjs_width: 1200
 :revealjs_height: 800
 
@@ -20,6 +19,8 @@ include::lexing.adoc[]
 include::parsing.adoc[]
 
 include::eval.adoc[]
+
+include::wrap-up.adoc[]
 
 ++++
 <div id="talk-header" class="slide-header">

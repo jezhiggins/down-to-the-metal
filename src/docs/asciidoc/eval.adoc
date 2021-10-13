@@ -233,7 +233,7 @@ If we walk the AST looking for operations for which both operands are _numbers_ 
 
 This is called constant folding, and it's a very common little optimisation. I implemented this in cell in about half an hour in Tuesday evening.
 
-[[DOWN FOR CODE]]
+_*DOWN FOR CODE*_
 --
 
 === !
@@ -257,6 +257,7 @@ include::../../../../jscell/bin/astprocessor/index.js[]
 secondsInMinute = 60;
 minutesInHour = 60;
 hoursInDay = 60;
+
 secondsInDay = secondsInMinute * minutesInHour * hoursInDay;
 --
 
@@ -267,14 +268,114 @@ What we need here is constant propagation! We should be able to look at our AST 
 So we can replace them directly with their value, and then we can apply our constant folding.
 
 I didn't write this is in Cell, but if we squiff over to Compiler Explorer ...
+--
 
-int secondsInMinute = 60;
-int minutesInHour = 60;
-int hoursInDay = 24;
+== !
 
+++++
+<iframe src="https://godbolt.org/z/eheoeMGM5" width="1200" height="800"></iframe>
+++++
+
+[.notes]
+--
+int secondsInMinute = 60; +
+int minutesInHour = 60; +
+int hoursInDay = 24; +
 int secondsInDay = secondsInMinute * minutesInHour * hoursInDay;
 
 GCC needs help, but clang is doing lifetime analysis.
 Adding const optimises it out completely.
+
+When we're doing that kind of lifetime analysis, we can do other helpful things too ...
 --
 
+== !
+
+image::images/webstorm-type-hint.png[]
+
+[.notes]
+--
+Like type inference.
+
+A lot of languages do some kind of type inferencing - think of _var_ in C#, Kotlin's _val_, C++'s _auto_ and so on. Some languages, like Haskell, can type inference everything.
+
+Here's Webstorm tell me that evalCell is a function taking four parameters, returning void. That's some pretty rich information there - certainly not something that's expressable in JavaScript itself.
+--
+
+== !
+
+[large]#Type Checker#
+
+[.notes]
+--
+There are a number of tools that will statically type check code written in dynamically typed languages, things like Psalm which type checks PHP
+--
+
+== !
+
+[large]#Linter#
+
+[.notes]
+--
+More generally, linters can analyse our AST to do things like tell us about unused variables and that kind of thing.
+
+Some can go further, offering suggestions about expressing yourself better. The Kotlin tooling will often say "here there, this method only has a single line, shall I rewrite it as an expression". If you're using VS Code as your JavaScript editor, it can convert Promise.then chains to use async/await.
+
+They're doing this by matching patterns in the AST. If you can identify the pattern, you can rewrite the code, or issue a warning, or whatever.
+
+Those of you that have used Babel plugins - that's what they're doing.
+--
+
+== !
+
+[large]#Bundler#
+
+[.notes]
+--
+Gather up a load of Javascript files, wham them together, remove the unused bits? The everyday work of Webpack, or Rollup, or whatever right.
+
+These bundlers often make a big deal about their tree-shaking? Any one want to have a stab at how we'd do that?
+
+Make a big list of all the function declarations. Work from our entry point to see which ones are actually called.
+--
+
+== !
+
+[large]#Obfuscator#
+
+[.notes]
+--
+We can easily find the symbol names in the AST right? So we can easily change them to something else! All we need to do is keep track of what we changed the old names to, and it all just drops out.
+--
+
+=== !
+
+[source]
+--
+include::../../../../jscell/examples/bank_account.cell[]
+--
+
+[source]
+--
+acc1 balance=
+9.5
+
+acc2 balance=
+5.42
+--
+
+=== !
+
+[source]
+--
+include::../../../../jscell/bankaccount.cell.min[]
+--
+
+[source]
+--
+acc1 balance=
+9.5
+
+acc2 balance=
+5.42
+--

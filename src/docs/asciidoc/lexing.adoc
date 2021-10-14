@@ -118,8 +118,8 @@ Because this is programming, we can always solve things using an extra level of 
 
 [source, ebnf]
 --
-symbol = alphabetic_character, { alphabetic_character | digit };
-number = digit, { digit };
+symbol = alphabetic_character | '_', { alphabetic_character | '_' | digit };
+number = digit | '.', { digit | '.'};
 single_quoted_string = '\'', { all_characters - '\'' }, '\'';
 double_quoted_string = '"', { all_characters - '"' }, '"';
 string = single_quoted_string | double_quoted_string;
@@ -141,62 +141,6 @@ Because cell is deliberately simple, we don't need all that guff. We can just wr
 [source, javascript]
 --
 include::../../../../jscell/lib/lexer.js[]
---
-
-== !
-
-[source]
---
-print ( "Hello!" ) ;
---
-
-[source]
---
-[ symbol, 'print' ]
-
---
-
-== !
-
-[source]
---
-print ( "Hello!" ) ;
---
-
-[source]
---
-[ symbol, 'print' ]
-[ (, '' ]
-
---
-
-== !
-
-[source]
---
-print ( "Hello!" ) ;
---
-
-[source]
---
-[ symbol, 'print' ]
-[ (, '' ]
-[ string, 'Hello!' ]
---
-
-== !
-
-[source]
---
-print ( "Hello!" ) ;
---
-
-[source]
---
-[ symbol, 'print' ]
-[ (, '' ]
-[ string, 'Hello!' ]
-[ ), '' ]
 --
 
 == !

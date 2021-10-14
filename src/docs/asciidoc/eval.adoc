@@ -254,6 +254,22 @@ include::../../../../jscell/bin/astprocessor/index.js[]
 
 [source]
 --
+secondsInDay = 60 * 60  * 24;
+--
+
+[.notes]
+--
+Who writes code like this though!
+
+This is bad code!
+
+We should be writing code like this!
+--
+
+== !
+
+[source]
+--
 secondsInMinute = 60;
 minutesInHour = 60;
 hoursInDay = 60;
@@ -263,9 +279,13 @@ secondsInDay = secondsInMinute * minutesInHour * hoursInDay;
 
 [.notes]
 --
-What we need here is constant propagation! We should be able to look at our AST and see that, yes, in this expression all these variables are known and are not, in fact, variables at all.
+Lots more meaningful.  Unfortunately, we've now killed our constant folding.
 
-So we can replace them directly with their value, and then we can apply our constant folding.
+Unless ...
+
+We can look at our AST and see that, yes, in this expression all these variables are known and are not, in fact, variables at all.
+
+So we can replace them directly with their value, and then we can apply our constant folding.  This is constant propagation.
 
 I didn't write this is in Cell, but if we squiff over to Compiler Explorer ...
 --

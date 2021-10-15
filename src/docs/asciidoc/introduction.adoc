@@ -5,6 +5,11 @@ Hello everyone - I'm Jez. I'm a freelance software grandad and I'm available, on
 You were kind enough to listen to my rambling tour through early 80s computing last year, and Alex has, perhaps foolishly, indulged me once again.
 --
 
+== !
+
+image::images/warning.png[]
+
+
 [background-image='images/ASR-33_2.jpg']
 == !
 

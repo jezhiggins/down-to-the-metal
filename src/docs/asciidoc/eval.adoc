@@ -108,6 +108,8 @@ This runtime behaviour is supported by a small library, some of which is "native
 That library code is loaded into the environment at start up.
 --
 
+== !
+
 [ditaa, "images/in-the-pink-no-mystery", "svg"]
 --
 
@@ -174,7 +176,7 @@ Right now, in Cell, this is going to be evaluated at runtime. This takes time, o
 
 [source]
 --
-secondsInDay = 60 * 60  * 24;
+secondsInDay = 60 * 60 * 24;
 --
 
 [cols="1,1", frame="none", grid="none"]
@@ -272,7 +274,7 @@ We should be writing code like this!
 --
 secondsInMinute = 60;
 minutesInHour = 60;
-hoursInDay = 60;
+hoursInDay = 24;
 
 secondsInDay = secondsInMinute * minutesInHour * hoursInDay;
 --
